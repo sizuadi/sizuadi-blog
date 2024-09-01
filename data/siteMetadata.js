@@ -8,8 +8,8 @@ const siteMetadata = {
   theme: 'system', // system, dark or light
   siteUrl: `${process.env.NEXT_PUBLIC_URL || 'https://sizuadi.github.io/blog'}`,
   siteRepo: 'https://github.com/sizuadi/sizuadi-blog',
-  siteLogo: `${process.env.BASE_PATH || ''}/static/images/logo.png`,
-  socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`,
+  siteLogo: `${process.env.NEXT_PUBLIC_URL || ''}/static/images/logo.png`,
+  socialBanner: `${process.env.NEXT_PUBLIC_URL || ''}https://sizuadi.github.io/blog`,
   mastodon: 'https://mastodon.social/@mastodonuser',
   email: 'adi15siswanto@gmail.com',
   github: 'https://github.com/sizuadi',
@@ -85,7 +85,7 @@ const siteMetadata = {
   search: {
     provider: 'kbar', // kbar or algolia
     kbarConfig: {
-      searchDocumentsPath: `${process.env.BASE_PATH || ''}/search.json`, // path to load documents to search
+      searchDocumentsPath: `${process.env.NEXT_PUBLIC_URL || ''}/search.json`, // path to load documents to search
     },
     // provider: 'algolia',
     // algoliaConfig: {
