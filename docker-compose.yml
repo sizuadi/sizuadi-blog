@@ -1,0 +1,27 @@
+services:
+  web:
+    container_name: sizu-blog
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_URL: ${NEXT_PUBLIC_URL}
+        NEXT_PUBLIC_GISCUS_REPO: ${NEXT_PUBLIC_GISCUS_REPO}
+        NEXT_PUBLIC_GISCUS_REPOSITORY_ID: ${NEXT_PUBLIC_GISCUS_REPOSITORY_ID}
+        NEXT_PUBLIC_GISCUS_CATEGORY: ${NEXT_PUBLIC_GISCUS_CATEGORY}
+        NEXT_PUBLIC_GISCUS_CATEGORY_ID: ${NEXT_PUBLIC_GISCUS_CATEGORY_ID}
+        NEXT_PUBLIC_HOME_URL: ${NEXT_PUBLIC_HOME_URL}
+        NEXT_PUBLIC_UTTERANCES_REPO: ${NEXT_PUBLIC_UTTERANCES_REPO}
+        NEXT_PUBLIC_DISQUS_SHORTNAME: ${NEXT_PUBLIC_DISQUS_SHORTNAME}
+        NEXT_UMAMI_ID: ${NEXT_UMAMI_ID}
+    image: sizuwanoadi/sizu-blog:latest
+    ports:
+      - "${HOST_PORT:-3001}:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_TELEMETRY_DISABLED=1
+    env_file:
+      - .env
+    restart: unless-stopped
+    # volumes:
+    #   - ./.env:/app/.env:ro
